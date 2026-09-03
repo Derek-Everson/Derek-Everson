@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +13,44 @@
             font-family: Arial, Helvetica, sans-serif;
             background-color: #f5f7fa;
             color: #333;
+            scroll-behavior: smooth;
         }
 
+        /* Navigation */
+        .main-navigation {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-navigation ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-navigation li {
+            margin: 8px 0;
+        }
+
+        .main-navigation a {
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .main-navigation a:hover {
+            color: #4b5563;
+        }
+
+        /* Main Introduction */
         .hero {
             max-width: 900px;
             margin: 80px auto;
@@ -50,6 +87,22 @@
             color: #1f2937;
         }
 
+        /* Website Sections */
+        .section {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 50px 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            font-size: 32px;
+            color: #1f2937;
+        }
+
+        /* Button */
         .button {
             display: inline-block;
             margin-top: 20px;
@@ -65,11 +118,40 @@
         .button:hover {
             background-color: #374151;
         }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .main-navigation {
+                top: 10px;
+                left: 10px;
+                padding: 10px 15px;
+            }
+
+            .main-navigation li {
+                display: inline;
+                margin-right: 12px;
+            }
+
+            .main-navigation a {
+                font-size: 14px;
+            }
+
+            .hero,
+            .section {
+                margin: 40px 15px;
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- Introduction -->
     <section class="hero">
 
         <h1>Derek Everson</h1>
@@ -77,19 +159,19 @@
         <h2>Student • Leader • Professional</h2>
 
         <p>
-            Welcome to my website. My name is 
+            Welcome to my website. My name is
             <span class="highlight">Derek Everson</span>, and I am a student
             at Iowa State University focused on developing my education,
             professional skills, and leadership abilities.
         </p>
 
         <p>
-            I am also a member of the 
+            I am also a member of the
             <span class="highlight">
                 National Society of Leadership and Success
             </span>,
             an experience that has allowed me to further develop my
-            leadership skills and connect with opportunities for personal
+            leadership skills and pursue opportunities for personal
             and professional growth.
         </p>
 
@@ -101,17 +183,51 @@
             maintaining a strong work ethic in different environments.
         </p>
 
-        <p>
-            This website provides an opportunity to learn more about my
-            background, experiences, skills, and goals as I continue to
-            grow both academically and professionally.
-        </p>
+    </section>
 
-        <a href="about.html" class="button">
-            Learn More About Me
-        </a>
+
+    <!-- Personal Section -->
+    <section id="personal" class="section">
+
+        <h2>Personal</h2>
+
+        <p>
+            Learn more about who I am, my background, interests, values,
+            and the experiences that have shaped me.
+        </p>
 
     </section>
 
+
+    <!-- Professional Section -->
+    <section id="professional" class="section">
+
+        <h2>Professional</h2>
+
+        <p>
+            Explore my education, work experience, leadership experience,
+            skills, and professional development.
+        </p>
+
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+
+        <h2>Projects</h2>
+
+        <p>
+            This section highlights projects, accomplishments, and other
+            work that demonstrate my skills and experience.
+        </p>
+
+    </section>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
 </body>
+
 </html>
