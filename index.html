@@ -8,78 +8,115 @@
     <title>Derek Everson | Personal Website</title>
 
     <style>
-        body {
+        /* =========================
+           GENERAL PAGE STYLING
+           ========================= */
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
+            padding: 0;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
-        /* Navigation */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           NAVIGATION
+           ========================= */
+
         .main-navigation {
             position: fixed;
             top: 20px;
             left: 20px;
             z-index: 1000;
+
             background-color: white;
-            padding: 15px 20px;
+            padding: 18px 22px;
+
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+
+            transition: all 0.3s ease;
         }
 
         .main-navigation ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
         }
 
         .main-navigation li {
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
         .main-navigation a {
             text-decoration: none;
             color: #1f2937;
-            font-weight: bold;
+
             font-size: 16px;
-            transition: color 0.3s;
+            font-weight: bold;
+
+            transition: color 0.3s ease;
         }
 
         .main-navigation a:hover {
-            color: #4b5563;
+            color: #2563eb;
         }
 
-        /* Main Introduction */
+        .main-navigation a.active {
+            color: #2563eb;
+        }
+
+
+        /* =========================
+           HERO / HOME SECTION
+           ========================= */
+
         .hero {
-            max-width: 900px;
-            margin: 80px auto;
-            padding: 60px 40px;
-            background-color: white;
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
             text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+            padding: 80px 30px;
+
+            background-color: white;
         }
 
-        h1 {
-            font-size: 46px;
-            margin-bottom: 10px;
+        .hero h1 {
+            font-size: 60px;
             color: #1f2937;
+            margin-bottom: 10px;
         }
 
-        h2 {
-            font-size: 24px;
+        .hero h2 {
+            font-size: 26px;
             font-weight: normal;
             color: #4b5563;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
 
-        p {
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero p {
             font-size: 18px;
-            line-height: 1.7;
-            color: #555;
-            text-align: left;
             margin-bottom: 20px;
+            color: #555;
         }
 
         .highlight {
@@ -87,145 +124,435 @@
             color: #1f2937;
         }
 
-        /* Website Sections */
-        .section {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 50px 40px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
 
-        .section h2 {
-            font-size: 32px;
-            color: #1f2937;
-        }
+        /* =========================
+           BUTTON
+           ========================= */
 
-        /* Button */
         .button {
             display: inline-block;
+
             margin-top: 20px;
-            padding: 13px 26px;
+
+            padding: 14px 28px;
+
             background-color: #1f2937;
             color: white;
+
             text-decoration: none;
+
             border-radius: 6px;
+
             font-size: 16px;
-            transition: background-color 0.3s;
+            font-weight: bold;
+
+            transition: all 0.3s ease;
         }
 
         .button:hover {
-            background-color: #374151;
+            background-color: #2563eb;
+            transform: translateY(-2px);
         }
 
-        /* Mobile */
-        @media (max-width: 600px) {
+
+        /* =========================
+           GENERAL SECTIONS
+           ========================= */
+
+        .section {
+            min-height: 80vh;
+
+            max-width: 1000px;
+
+            margin: 0 auto;
+
+            padding: 100px 50px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            background-color: #f4f6f8;
+        }
+
+        .section h2 {
+            font-size: 40px;
+            color: #1f2937;
+            margin-bottom: 25px;
+        }
+
+        .section p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+
+        /* =========================
+           SECTION CARDS
+           ========================= */
+
+        .section-card {
+            background-color: white;
+
+            padding: 35px;
+
+            margin-top: 20px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+            transition: transform 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .section-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+
+
+        /* =========================
+           FOOTER
+           ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            background-color: #1f2937;
+
+            color: white;
+        }
+
+        footer p {
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MOBILE NAVIGATION
+           ========================= */
+
+        .menu-button {
+            display: none;
+
+            position: fixed;
+
+            top: 15px;
+            left: 15px;
+
+            z-index: 1100;
+
+            background-color: #1f2937;
+
+            color: white;
+
+            border: none;
+
+            padding: 10px 14px;
+
+            border-radius: 6px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           MOBILE RESPONSIVE DESIGN
+           ========================= */
+
+        @media (max-width: 700px) {
+
+            .menu-button {
+                display: block;
+            }
+
             .main-navigation {
-                top: 10px;
-                left: 10px;
-                padding: 10px 15px;
+                top: 60px;
+                left: 15px;
+
+                display: none;
+
+                padding: 15px 20px;
+            }
+
+            .main-navigation.show {
+                display: block;
             }
 
             .main-navigation li {
-                display: inline;
-                margin-right: 12px;
+                margin: 12px 0;
             }
 
-            .main-navigation a {
-                font-size: 14px;
+            .hero {
+                padding: 100px 25px 60px;
             }
 
-            .hero,
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 21px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
             .section {
-                margin: 40px 15px;
-                padding: 35px 25px;
+                padding: 80px 25px;
             }
 
-            h1 {
-                font-size: 36px;
+            .section h2 {
+                font-size: 32px;
+            }
+
+            .section p {
+                font-size: 16px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- Introduction -->
-    <section class="hero">
+    <!-- =========================
+         MOBILE MENU BUTTON
+         ========================= -->
 
-        <h1>Derek Everson</h1>
+    <button
+        id="menu-button"
+        class="menu-button"
+        aria-label="Open navigation menu">
+        ☰
+    </button>
 
-        <h2>Student • Leader • Professional</h2>
+
+    <!-- =========================
+         NAVIGATION
+         JavaScript will populate this menu.
+         ========================= -->
+
+    <nav id="main-navigation" class="main-navigation">
+        <!-- JavaScript creates the navigation here -->
+    </nav>
+
+
+    <!-- =========================
+         HOME / INTRODUCTION
+         ========================= -->
+
+    <main>
+
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+
+                <h1>Derek Everson</h1>
+
+                <h2>Student • Leader • Professional</h2>
+
+                <p>
+                    Welcome to my website. My name is
+                    <span class="highlight">Derek Everson</span>,
+                    and I am a student at Iowa State University focused
+                    on developing my education, professional skills,
+                    and leadership abilities.
+                </p>
+
+                <p>
+                    I am also a member of the
+                    <span class="highlight">
+                        National Society of Leadership and Success
+                    </span>.
+                    Through my education and leadership experiences,
+                    I continue to develop the skills necessary for
+                    personal and professional growth.
+                </p>
+
+                <p>
+                    Alongside my education, I have gained valuable work
+                    experience in a variety of areas, including customer
+                    service and manual labor. These experiences have
+                    helped me develop communication, teamwork,
+                    adaptability, reliability, and a strong work ethic.
+                </p>
+
+                <p>
+                    This website provides an opportunity to learn more
+                    about my background, professional experiences,
+                    projects, skills, and goals.
+                </p>
+
+                <a href="#personal" class="button">
+                    Explore My Website
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PERSONAL SECTION
+             ========================= -->
+
+        <section id="personal" class="section">
+
+            <h2>Personal</h2>
+
+            <p>
+                This section provides a closer look at who I am,
+                my background, interests, values, and the experiences
+                that have shaped me.
+            </p>
+
+            <div class="section-card">
+
+                <h3>About Me</h3>
+
+                <p>
+                    I am currently a student at Iowa State University.
+                    My college experience has given me the opportunity
+                    to continue learning, challenge myself, and develop
+                    both academically and personally.
+                </p>
+
+            </div>
+
+            <div class="section-card">
+
+                <h3>Leadership</h3>
+
+                <p>
+                    As a member of the National Society of Leadership
+                    and Success, I have an opportunity to continue
+                    developing my leadership abilities and professional
+                    skills.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROFESSIONAL SECTION
+             ========================= -->
+
+        <section id="professional" class="section">
+
+            <h2>Professional</h2>
+
+            <p>
+                My professional experience includes working in
+                different environments and taking on a variety of
+                responsibilities.
+            </p>
+
+            <div class="section-card">
+
+                <h3>Customer Service</h3>
+
+                <p>
+                    My customer service experience has helped me
+                    develop communication skills, patience,
+                    professionalism, and the ability to work
+                    effectively with different people.
+                </p>
+
+            </div>
+
+            <div class="section-card">
+
+                <h3>Manual Labor &amp; Other Experience</h3>
+
+                <p>
+                    I have also gained experience through various
+                    forms of manual labor and other work. These
+                    positions have strengthened my work ethic,
+                    reliability, teamwork, and ability to adapt
+                    to different work environments.
+                </p>
+
+            </div>
+
+            <div class="section-card">
+
+                <h3>Professional Development</h3>
+
+                <p>
+                    I am continuing to build my professional skills
+                    through my education, work experience, leadership
+                    opportunities, and personal development.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS SECTION
+             ========================= -->
+
+        <section id="projects" class="section">
+
+            <h2>Projects</h2>
+
+            <p>
+                This section will highlight projects and accomplishments
+                that demonstrate my skills, interests, and continued
+                development.
+            </p>
+
+            <div class="section-card">
+
+                <h3>Current &amp; Future Projects</h3>
+
+                <p>
+                    As I continue my education at Iowa State University,
+                    I will use this space to showcase academic,
+                    professional, and personal projects.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+
+    <footer>
 
         <p>
-            Welcome to my website. My name is
-            <span class="highlight">Derek Everson</span>, and I am a student
-            at Iowa State University focused on developing my education,
-            professional skills, and leadership abilities.
+            &copy; 2026 Derek Everson. All Rights Reserved.
         </p>
 
-        <p>
-            I am also a member of the
-            <span class="highlight">
-                National Society of Leadership and Success
-            </span>,
-            an experience that has allowed me to further develop my
-            leadership skills and pursue opportunities for personal
-            and professional growth.
-        </p>
-
-        <p>
-            Alongside my education, I have gained valuable work experience
-            in a variety of areas, including customer service and manual
-            labor. These experiences have taught me the importance of
-            communication, reliability, teamwork, adaptability, and
-            maintaining a strong work ethic in different environments.
-        </p>
-
-    </section>
+    </footer>
 
 
-    <!-- Personal Section -->
-    <section id="personal" class="section">
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
 
-        <h2>Personal</h2>
-
-        <p>
-            Learn more about who I am, my background, interests, values,
-            and the experiences that have shaped me.
-        </p>
-
-    </section>
-
-
-    <!-- Professional Section -->
-    <section id="professional" class="section">
-
-        <h2>Professional</h2>
-
-        <p>
-            Explore my education, work experience, leadership experience,
-            skills, and professional development.
-        </p>
-
-    </section>
-
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-
-        <h2>Projects</h2>
-
-        <p>
-            This section highlights projects, accomplishments, and other
-            work that demonstrate my skills and experience.
-        </p>
-
-    </section>
-
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
