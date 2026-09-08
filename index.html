@@ -3,557 +3,273 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Derek Everson | Personal Website</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <style>
-        /* =========================
-           GENERAL PAGE STYLING
-           ========================= */
+    <meta name="description"
+          content="Derek Everson's personal, professional, and project portfolio website">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <title>Derek Everson | Home</title>
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           NAVIGATION
-           ========================= */
-
-        .main-navigation {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-
-            background-color: white;
-            padding: 18px 22px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-
-            transition: all 0.3s ease;
-        }
-
-        .main-navigation ul {
-            list-style: none;
-        }
-
-        .main-navigation li {
-            margin: 10px 0;
-        }
-
-        .main-navigation a {
-            text-decoration: none;
-            color: #1f2937;
-
-            font-size: 16px;
-            font-weight: bold;
-
-            transition: color 0.3s ease;
-        }
-
-        .main-navigation a:hover {
-            color: #2563eb;
-        }
-
-        .main-navigation a.active {
-            color: #2563eb;
-        }
-
-
-        /* =========================
-           HERO / HOME SECTION
-           ========================= */
-
-        .hero {
-            min-height: 100vh;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            text-align: center;
-
-            padding: 80px 30px;
-
-            background-color: white;
-        }
-
-        .hero h1 {
-            font-size: 60px;
-            color: #1f2937;
-            margin-bottom: 10px;
-        }
-
-        .hero h2 {
-            font-size: 26px;
-            font-weight: normal;
-            color: #4b5563;
-            margin-bottom: 35px;
-        }
-
-        .hero-content {
-            max-width: 850px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #555;
-        }
-
-        .highlight {
-            font-weight: bold;
-            color: #1f2937;
-        }
-
-
-        /* =========================
-           BUTTON
-           ========================= */
-
-        .button {
-            display: inline-block;
-
-            margin-top: 20px;
-
-            padding: 14px 28px;
-
-            background-color: #1f2937;
-            color: white;
-
-            text-decoration: none;
-
-            border-radius: 6px;
-
-            font-size: 16px;
-            font-weight: bold;
-
-            transition: all 0.3s ease;
-        }
-
-        .button:hover {
-            background-color: #2563eb;
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================
-           GENERAL SECTIONS
-           ========================= */
-
-        .section {
-            min-height: 80vh;
-
-            max-width: 1000px;
-
-            margin: 0 auto;
-
-            padding: 100px 50px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            background-color: #f4f6f8;
-        }
-
-        .section h2 {
-            font-size: 40px;
-            color: #1f2937;
-            margin-bottom: 25px;
-        }
-
-        .section p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-            max-width: 800px;
-        }
-
-
-        /* =========================
-           SECTION CARDS
-           ========================= */
-
-        .section-card {
-            background-color: white;
-
-            padding: 35px;
-
-            margin-top: 20px;
-
-            border-radius: 10px;
-
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-
-            transition: transform 0.3s ease;
-        }
-
-        .section-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .section-card h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: #1f2937;
-        }
-
-
-        /* =========================
-           FOOTER
-           ========================= */
-
-        footer {
-            text-align: center;
-
-            padding: 30px;
-
-            background-color: #1f2937;
-
-            color: white;
-        }
-
-        footer p {
-            font-size: 15px;
-        }
-
-
-        /* =========================
-           MOBILE NAVIGATION
-           ========================= */
-
-        .menu-button {
-            display: none;
-
-            position: fixed;
-
-            top: 15px;
-            left: 15px;
-
-            z-index: 1100;
-
-            background-color: #1f2937;
-
-            color: white;
-
-            border: none;
-
-            padding: 10px 14px;
-
-            border-radius: 6px;
-
-            font-size: 18px;
-
-            cursor: pointer;
-        }
-
-
-        /* =========================
-           MOBILE RESPONSIVE DESIGN
-           ========================= */
-
-        @media (max-width: 700px) {
-
-            .menu-button {
-                display: block;
-            }
-
-            .main-navigation {
-                top: 60px;
-                left: 15px;
-
-                display: none;
-
-                padding: 15px 20px;
-            }
-
-            .main-navigation.show {
-                display: block;
-            }
-
-            .main-navigation li {
-                margin: 12px 0;
-            }
-
-            .hero {
-                padding: 100px 25px 60px;
-            }
-
-            .hero h1 {
-                font-size: 42px;
-            }
-
-            .hero h2 {
-                font-size: 21px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 80px 25px;
-            }
-
-            .section h2 {
-                font-size: 32px;
-            }
-
-            .section p {
-                font-size: 16px;
-            }
-        }
-
-    </style>
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-    <!-- =========================
-         MOBILE MENU BUTTON
-         ========================= -->
+    <!-- =====================================================
+         MAIN WEBSITE CONTAINER
+         ===================================================== -->
 
-    <button
-        id="menu-button"
-        class="menu-button"
-        aria-label="Open navigation menu">
-        ☰
-    </button>
+    <div class="site-wrapper">
 
 
-    <!-- =========================
-         NAVIGATION
-         JavaScript will populate this menu.
-         ========================= -->
+        <!-- =================================================
+             HEADER
+             ================================================= -->
 
-    <nav id="main-navigation" class="main-navigation">
-        <!-- JavaScript creates the navigation here -->
-    </nav>
+        <header class="site-header">
+
+            <!-- Logo + Website Description -->
+            <div class="header-top">
+
+                <div class="logo-area">
+                    <span>Logo</span>
+                </div>
+
+                <div class="site-intro">
+                    <p>
+                        Welcome to Derek Everson's personal website.
+                        Explore my personal background, professional
+                        experience, and projects.
+                    </p>
+                </div>
+
+            </div>
 
 
-    <!-- =========================
-         HOME / INTRODUCTION
-         ========================= -->
+            <!-- Primary Navigation
+                 Generated by navigation.js -->
+            <div id="primary-navigation"></div>
 
-    <main>
 
-        <section id="home" class="hero">
+            <!-- Secondary Navigation
+                 Generated by navigation.js -->
+            <div id="secondary-navigation"></div>
 
-            <div class="hero-content">
+        </header>
 
-                <h1>Derek Everson</h1>
 
-                <h2>Student • Leader • Professional</h2>
+        <!-- =================================================
+             THREE-COLUMN PAGE CONTENT
+             ================================================= -->
 
-                <p>
-                    Welcome to my website. My name is
-                    <span class="highlight">Derek Everson</span>,
-                    and I am a student at Iowa State University focused
-                    on developing my education, professional skills,
-                    and leadership abilities.
-                </p>
+        <div class="page-grid">
 
-                <p>
-                    I am also a member of the
-                    <span class="highlight">
-                        National Society of Leadership and Success
-                    </span>.
-                    Through my education and leadership experiences,
-                    I continue to develop the skills necessary for
-                    personal and professional growth.
-                </p>
 
-                <p>
-                    Alongside my education, I have gained valuable work
-                    experience in a variety of areas, including customer
-                    service and manual labor. These experiences have
-                    helped me develop communication, teamwork,
-                    adaptability, reliability, and a strong work ethic.
-                </p>
+            <!-- =============================================
+                 LEFT SIDEBAR
+                 ============================================= -->
 
-                <p>
-                    This website provides an opportunity to learn more
-                    about my background, professional experiences,
-                    projects, skills, and goals.
-                </p>
+            <aside class="left-sidebar">
 
-                <a href="#personal" class="button">
-                    Explore My Website
+                <!-- Navigation generated by navigation.js -->
+                <div id="side-navigation"></div>
+
+            </aside>
+
+
+            <!-- =============================================
+                 MAIN CONTENT
+                 ============================================= -->
+
+            <main class="main-content">
+
+
+                <!-- Hero Image -->
+                <section class="hero">
+
+                    <!--
+                        Replace this placeholder with an image.
+
+                        Example:
+
+                        <img src="images/hero.jpg"
+                             alt="Derek Everson">
+
+                    -->
+
+                    <div class="hero-placeholder">
+                        Hero Image
+                    </div>
+
+                </section>
+
+
+                <!-- Main Website Content -->
+                <section class="content-section">
+
+                    <h1>Welcome to My Website</h1>
+
+                    <p>
+                        My name is Derek Everson, and I am a student
+                        at Iowa State University. This website provides
+                        an overview of my background, professional
+                        experience, interests, and projects.
+                    </p>
+
+                    <p>
+                        Throughout my education and work experience,
+                        I have developed skills in customer service,
+                        communication, teamwork, problem solving,
+                        and a variety of hands-on work environments.
+                        These experiences have helped me develop a
+                        strong work ethic and the ability to adapt
+                        to different situations.
+                    </p>
+
+                    <p>
+                        I am also a member of the National Society of
+                        Leadership and Success. My involvement in
+                        leadership and professional development has
+                        given me opportunities to continue improving
+                        my communication, leadership, and
+                        organizational skills.
+                    </p>
+
+                    <p>
+                        Use the navigation above or the sidebar to
+                        learn more about my personal background,
+                        professional experience, and projects.
+                    </p>
+
+                </section>
+
+
+                <!-- Additional Content -->
+                <section class="content-section">
+
+                    <h2>About This Website</h2>
+
+                    <p>
+                        This website is organized into three primary
+                        areas: Personal, Professional, and Projects.
+                        Each section provides different information
+                        about my experiences, skills, interests, and
+                        work.
+                    </p>
+
+                </section>
+
+            </main>
+
+
+            <!-- =============================================
+                 RIGHT SIDEBAR / STICKY CONTENT
+                 ============================================= -->
+
+            <aside class="right-sidebar">
+
+                <div class="sticky-content">
+
+                    <h2>Quick Information</h2>
+
+                    <ul>
+
+                        <li>
+                            <a href="personal.html">
+                                Personal
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="professional.html">
+                                Professional
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="projects.html">
+                                Projects
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <footer class="site-footer">
+
+            <p>
+                &copy; 2026 Derek Everson.
+                All rights reserved.
+            </p>
+
+            <p>
+
+                <a href="index.html">
+                    Home
                 </a>
 
-            </div>
+                |
 
-        </section>
+                <a href="personal.html">
+                    Personal
+                </a>
 
+                |
 
-        <!-- =========================
-             PERSONAL SECTION
-             ========================= -->
+                <a href="professional.html">
+                    Professional
+                </a>
 
-        <section id="personal" class="section">
+                |
 
-            <h2>Personal</h2>
+                <a href="projects.html">
+                    Projects
+                </a>
 
-            <p>
-                This section provides a closer look at who I am,
-                my background, interests, values, and the experiences
-                that have shaped me.
+                |
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                |
+
+                <a href="privacy.html">
+                    Privacy
+                </a>
+
             </p>
 
-            <div class="section-card">
-
-                <h3>About Me</h3>
-
-                <p>
-                    I am currently a student at Iowa State University.
-                    My college experience has given me the opportunity
-                    to continue learning, challenge myself, and develop
-                    both academically and personally.
-                </p>
-
-            </div>
-
-            <div class="section-card">
-
-                <h3>Leadership</h3>
-
-                <p>
-                    As a member of the National Society of Leadership
-                    and Success, I have an opportunity to continue
-                    developing my leadership abilities and professional
-                    skills.
-                </p>
-
-            </div>
-
-        </section>
+        </footer>
 
 
-        <!-- =========================
-             PROFESSIONAL SECTION
-             ========================= -->
-
-        <section id="professional" class="section">
-
-            <h2>Professional</h2>
-
-            <p>
-                My professional experience includes working in
-                different environments and taking on a variety of
-                responsibilities.
-            </p>
-
-            <div class="section-card">
-
-                <h3>Customer Service</h3>
-
-                <p>
-                    My customer service experience has helped me
-                    develop communication skills, patience,
-                    professionalism, and the ability to work
-                    effectively with different people.
-                </p>
-
-            </div>
-
-            <div class="section-card">
-
-                <h3>Manual Labor &amp; Other Experience</h3>
-
-                <p>
-                    I have also gained experience through various
-                    forms of manual labor and other work. These
-                    positions have strengthened my work ethic,
-                    reliability, teamwork, and ability to adapt
-                    to different work environments.
-                </p>
-
-            </div>
-
-            <div class="section-card">
-
-                <h3>Professional Development</h3>
-
-                <p>
-                    I am continuing to build my professional skills
-                    through my education, work experience, leadership
-                    opportunities, and personal development.
-                </p>
-
-            </div>
-
-        </section>
+    </div>
 
 
-        <!-- =========================
-             PROJECTS SECTION
-             ========================= -->
+    <!-- =====================================================
+         JAVASCRIPT NAVIGATION
+         ===================================================== -->
 
-        <section id="projects" class="section">
-
-            <h2>Projects</h2>
-
-            <p>
-                This section will highlight projects and accomplishments
-                that demonstrate my skills, interests, and continued
-                development.
-            </p>
-
-            <div class="section-card">
-
-                <h3>Current &amp; Future Projects</h3>
-
-                <p>
-                    As I continue my education at Iowa State University,
-                    I will use this space to showcase academic,
-                    professional, and personal projects.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-         ========================= -->
-
-    <footer>
-
-        <p>
-            &copy; 2026 Derek Everson. All Rights Reserved.
-        </p>
-
-    </footer>
-
-
-    <!-- =========================
-         JAVASCRIPT
-         ========================= -->
-
-    <script src="script.js"></script>
+    <script src="navigation.js"></script>
 
 </body>
 
