@@ -1,216 +1,248 @@
-/*
- * navigation.js
- * Shared navigation system for all pages of the website.
- *
- * Navigation sections:
- * - Primary navigation
- * - Secondary navigation
- * - Side navigation
- *
- * Add the following placeholders to your HTML:
- *
- * <div id="primary-navigation"></div>
- * <div id="secondary-navigation"></div>
- * <div id="side-navigation"></div>
- *
- * Then load this file before the closing </body> tag:
- *
- * <script src="navigation.js"></script>
- */
+/* ============================================================
+   DEREK EVERSON WEBSITE
+   NAVIGATION SYSTEM
+   ============================================================ */
 
-(function () {
-    "use strict";
+document.addEventListener("DOMContentLoaded", function () {
 
-    // ============================================================
-    // NAVIGATION LINKS
-    // Edit these links here and they will update across all pages.
-    // ============================================================
+    /*
+     * ========================================================
+     * NAVIGATION LINKS
+     *
+     * IMPORTANT:
+     * These filenames must match the actual HTML files
+     * in your GitHub repository.
+     * ========================================================
+     */
 
-    const navigation = {
-
-        // Main navigation across the top
-        primary: [
-            {
-                label: "Personal",
-                url: "personal.html"
-            },
-            {
-                label: "Professional",
-                url: "professional.html"
-            },
-            {
-                label: "Projects",
-                url: "projects.html"
-            }
-        ],
-
-        // Secondary navigation
-        secondary: [
-            {
-                label: "Home",
-                url: "index.html"
-            },
-            {
-                label: "About",
-                url: "personal.html"
-            },
-            {
-                label: "Contact",
-                url: "contact.html"
-            }
-        ],
-
-        // Navigation displayed in the left sidebar
-        side: [
-            {
-                label: "Personal",
-                url: "personal.html"
-            },
-            {
-                label: "Professional",
-                url: "professional.html"
-            },
-            {
-                label: "Projects",
-                url: "projects.html"
-            }
-        ]
-    };
-
-
-    // ============================================================
-    // DETERMINE THE CURRENT PAGE
-    // ============================================================
-
-    function getCurrentPage() {
-
-        let page = window.location.pathname.split("/").pop();
-
-        // GitHub Pages may use the root URL for index.html
-        if (page === "") {
-            page = "index.html";
+    const primaryNavigation = [
+        {
+            name: "Personal",
+            link: "personal.html"
+        },
+        {
+            name: "Professional",
+            link: "professional.html"
+        },
+        {
+            name: "Projects",
+            link: "projects.html"
         }
+    ];
 
-        return page;
+
+    const secondaryNavigation = [
+        {
+            name: "Home",
+            link: "index.html"
+        },
+        {
+            name: "About",
+            link: "personal.html"
+        },
+        {
+            name: "Contact",
+            link: "contact.html"
+        }
+    ];
+
+
+    const sideNavigation = [
+        {
+            name: "Home",
+            link: "index.html"
+        },
+        {
+            name: "Personal",
+            link: "personal.html"
+        },
+        {
+            name: "Professional",
+            link: "professional.html"
+        },
+        {
+            name: "Projects",
+            link: "projects.html"
+        },
+        {
+            name: "Contact",
+            link: "contact.html"
+        }
+    ];
+
+
+    /*
+     * ========================================================
+     * FIND CURRENT PAGE
+     * ========================================================
+     */
+
+    let currentPage = window.location.pathname
+        .split("/")
+        .pop()
+        .toLowerCase();
+
+
+    /*
+     * If GitHub Pages is displaying the homepage,
+     * the pathname can sometimes be empty.
+     */
+
+    if (
+        currentPage === "" ||
+        currentPage === "/"
+    ) {
+        currentPage = "index.html";
     }
 
 
-    // ============================================================
-    // CREATE A NAVIGATION LINK
-    // ============================================================
+    /*
+     * ========================================================
+     * CREATE NAVIGATION
+     * ========================================================
+     */
 
-    function createNavigationLink(item) {
-
-        const link = document.createElement("a");
-
-        link.href = item.url;
-        link.textContent = item.label;
-
-        // Highlight the current page
-        if (getCurrentPage() === item.url) {
-
-            link.classList.add("active");
-
-            link.setAttribute(
-                "aria-current",
-                "page"
-            );
-        }
-
-        return link;
-    }
-
-
-    // ============================================================
-    // CREATE A NAVIGATION MENU
-    // ============================================================
-
-    function renderNavigation(
-        containerId,
-        items,
-        navigationClass
+    function createNavigation(
+        containerID,
+        navigationItems,
+        cssClass
     ) {
 
         const container =
-            document.getElementById(containerId);
+            document.getElementById(containerID);
 
-        // Stop if the HTML page doesn't contain
-        // the requested navigation container.
+
+        /*
+         * If the navigation container doesn't exist,
+         * stop here.
+         */
+
         if (!container) {
             return;
         }
 
-        // Create the <nav> element
-        const nav = document.createElement("nav");
 
-        nav.className = navigationClass;
+        /*
+         * Create <nav>
+         */
 
-        nav.setAttribute(
-            "aria-label",
-            navigationClass.replace("-", " ")
-        );
+        const nav =
+            document.createElement("nav");
 
-
-        // Create the unordered list
-        const list = document.createElement("ul");
+        nav.className = cssClass;
 
 
-        // Add every navigation item
-        items.forEach(function (item) {
+        /*
+         * Create <ul>
+         */
+
+        const list =
+            document.createElement("ul");
+
+
+        /*
+         * Create each navigation item
+         */
+
+        navigationItems.forEach(function (item) {
 
             const listItem =
                 document.createElement("li");
 
+
             const link =
-                createNavigationLink(item);
+                document.createElement("a");
+
+
+            /*
+             * Set the link
+             */
+
+            link.href = item.link;
+
+            link.textContent = item.name;
+
+
+            /*
+             * Check whether this is the
+             * page the visitor is currently on.
+             */
+
+            if (
+                currentPage ===
+                item.link.toLowerCase()
+            ) {
+
+                link.classList.add("active");
+
+                link.setAttribute(
+                    "aria-current",
+                    "page"
+                );
+
+            }
+
+
+            /*
+             * Add link to list item
+             */
 
             listItem.appendChild(link);
 
+
+            /*
+             * Add list item to list
+             */
+
             list.appendChild(listItem);
+
         });
 
 
-        // Add list to navigation
+        /*
+         * Add list to nav
+         */
+
         nav.appendChild(list);
 
 
-        // Replace placeholder with navigation
-        container.replaceWith(nav);
+        /*
+         * Remove the placeholder div
+         * and replace it with the navigation.
+         */
+
+        container.innerHTML = "";
+
+        container.appendChild(nav);
+
     }
 
 
-    // ============================================================
-    // START NAVIGATION SYSTEM
-    // ============================================================
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-
-            // Top primary navigation
-            renderNavigation(
-                "primary-navigation",
-                navigation.primary,
-                "primary-nav"
-            );
+    /*
+     * ========================================================
+     * CREATE ALL THREE NAVIGATION MENUS
+     * ========================================================
+     */
 
 
-            // Top secondary navigation
-            renderNavigation(
-                "secondary-navigation",
-                navigation.secondary,
-                "secondary-nav"
-            );
-
-
-            // Left sidebar navigation
-            renderNavigation(
-                "side-navigation",
-                navigation.side,
-                "side-nav"
-            );
-
-        }
+    createNavigation(
+        "primary-navigation",
+        primaryNavigation,
+        "primary-nav"
     );
 
-})();
+
+    createNavigation(
+        "secondary-navigation",
+        secondaryNavigation,
+        "secondary-nav"
+    );
+
+
+    createNavigation(
+        "side-navigation",
+        sideNavigation,
+        "side-nav"
+    );
+
+});
