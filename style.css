@@ -1,322 +1,175 @@
-/* style.css
-   Layout based on the supplied wireframe.
-   The page occupies 80% of the viewport, leaving 10% beige space on each side.
-*/
+/* ============================================================
+   DEREK EVERSON WEBSITE
+   Main Stylesheet
+   ============================================================ */
+
+
+/* ============================================================
+   VARIABLES
+   ============================================================ */
 
 :root {
-  --page-width: 80%;
-  --beige: #e8dcc8;
-  --page-bg: #ffffff;
-  --border: #222;
-  --text: #111;
-  --muted: #f4f1eb;
-  --link-bg: #eeeeee;
+
+    --page-width: 80%;
+
+    --beige: #e8dcc8;
+
+    --white: #ffffff;
+
+    --black: #222222;
+
+    --dark-gray: #333333;
+
+    --gray: #666666;
+
+    --light-gray: #f4f1eb;
+
+    --accent: #b69b6b;
+
+    --border: #222222;
+
 }
+
+
+/* ============================================================
+   RESET
+   ============================================================ */
 
 * {
-  box-sizing: border-box;
+
+    box-sizing: border-box;
+
 }
+
 
 html {
-  scroll-behavior: smooth;
+
+    scroll-behavior: smooth;
+
 }
+
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  background: var(--beige);
-  color: var(--text);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.45;
+
+    margin: 0;
+
+    padding: 0;
+
+    min-height: 100vh;
+
+    background-color: var(--beige);
+
+    color: var(--black);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.5;
+
 }
 
-/* Main 80% site area = 10% margin on both sides */
+
+/* ============================================================
+   MAIN WEBSITE CONTAINER
+   80% WIDTH
+   10% BEIGE SPACE ON EACH SIDE
+   ============================================================ */
+
 .site-wrapper {
-  width: var(--page-width);
-  max-width: 1400px;
-  min-height: 100vh;
-  margin: 0 auto;
-  background: var(--page-bg);
-  border-left: 1px solid var(--border);
-  border-right: 1px solid var(--border);
+
+    width: var(--page-width);
+
+    max-width: 1400px;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    background-color: var(--white);
+
+    border-left: 1px solid var(--border);
+
+    border-right: 1px solid var(--border);
+
 }
 
-/* ---------------- HEADER ---------------- */
+
+/* ============================================================
+   HEADER
+   ============================================================ */
 
 .site-header {
-  border-bottom: 1px solid var(--border);
+
+    border-bottom: 1px solid var(--border);
+
 }
+
+
+/* ============================================================
+   HEADER TOP
+   ============================================================ */
 
 .header-top {
-  display: grid;
-  grid-template-columns: 22% 78%;
-  min-height: 88px;
+
+    display: grid;
+
+    grid-template-columns: 22% 78%;
+
+    min-height: 105px;
+
 }
 
-.logo-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  border-right: 1px solid var(--border);
-  font-size: 2rem;
-  font-weight: 500;
-}
 
-.site-intro {
-  display: flex;
-  align-items: center;
-  padding: 15px 22px;
-  font-size: 0.95rem;
-}
-
-.primary-nav,
-.secondary-nav {
-  border-top: 1px solid var(--border);
-  background: var(--muted);
-}
-
-.primary-nav {
-  min-height: 36px;
-}
-
-.secondary-nav {
-  min-height: 28px;
-  background: #fff;
-}
-
-.primary-nav ul,
-.secondary-nav ul,
-.side-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.primary-nav ul,
-.secondary-nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.primary-nav a,
-.secondary-nav a {
-  display: block;
-  padding: 7px 20px;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.secondary-nav a {
-  padding: 4px 16px;
-  font-size: 0.9rem;
-}
-
-.primary-nav a:hover,
-.secondary-nav a:hover,
-.primary-nav a.active,
-.secondary-nav a.active {
-  background: var(--link-bg);
-  text-decoration: underline;
-}
-
-/* ---------------- THREE-COLUMN CONTENT ---------------- */
-
-.page-grid {
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
-  min-height: 480px;
-}
-
-.left-sidebar {
-  border-right: 1px solid var(--border);
-}
-
-.main-content {
-  padding: 14px 16px 30px;
-}
-
-.right-sidebar {
-  border-left: 1px solid var(--border);
-  padding: 22px 18px;
-}
-
-.side-nav {
-  padding: 25px 14px;
-}
-
-.side-nav a {
-  display: block;
-  padding: 5px 0;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.side-nav a:hover,
-.side-nav a.active {
-  text-decoration: underline;
-}
-
-/* ---------------- HERO ---------------- */
-
-.hero {
-  min-height: 135px;
-  margin-bottom: 22px;
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background: #f7f7f7;
-}
-
-.hero img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 135px;
-  object-fit: cover;
-}
-
-.hero-placeholder {
-  padding: 20px;
-  text-align: center;
-  font-size: 1.25rem;
-}
-
-/* ---------------- MAIN TEXT ---------------- */
-
-.main-content h1,
-.main-content h2,
-.main-content h3 {
-  margin-top: 0;
-}
-
-.main-content p {
-  max-width: 70ch;
-}
-
-.content-section {
-  margin-bottom: 28px;
-}
-
-/* ---------------- STICKY CONTENT ---------------- */
-
-.sticky-content {
-  position: sticky;
-  top: 20px;
-}
-
-.sticky-content h2 {
-  margin-top: 0;
-  font-size: 1.1rem;
-}
-
-.sticky-content ul {
-  padding-left: 20px;
-}
-
-.sticky-content a {
-  color: var(--text);
-}
-
-/* ---------------- FOOTER ---------------- */
-
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 9px 16px;
-  text-align: center;
-  font-size: 0.8rem;
-  background: #fff;
-}
-
-.site-footer a {
-  color: var(--text);
-  margin: 0 7px;
-}
-
-/* ---------------- MOBILE ---------------- */
-
-@media (max-width: 800px) {
-  :root {
-    --page-width: 94%;
-  }
-
-  .header-top {
-    grid-template-columns: 1fr;
-  }
-
-  .logo-area {
-    min-height: 70px;
-    border-right: 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .page-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .left-sidebar,
-  .right-sidebar {
-    border: 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .left-sidebar {
-    order: 1;
-  }
-
-  .main-content {
-    order: 2;
-  }
-
-  .right-sidebar {
-    order: 3;
-  }
-
-  .side-nav {
-    padding: 15px 20px;
-  }
-
-  .side-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 20px;
-  }
-
-  .sticky-content {
-    position: static;
-  }
-}
 /* ============================================================
-   DEREK EVERSON LOGO
+   LOGO AREA
    ============================================================ */
 
 .logo-area {
-    padding: 12px 15px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
+    padding: 12px;
+
+    border-right: 1px solid var(--border);
+
 }
 
-/* Entire logo */
+
+/* ============================================================
+   COMPLETE LOGO
+   ============================================================ */
+
 .site-logo {
+
     display: flex;
+
     align-items: center;
-    gap: 12px;
+
+    justify-content: center;
 
     width: 100%;
 
-    color: #222;
+    gap: 10px;
+
+    color: var(--black);
+
     text-decoration: none;
 
     transition: opacity 0.2s ease;
+
 }
 
+
 .site-logo:hover {
+
     opacity: 0.75;
+
 }
 
 
@@ -325,55 +178,74 @@ body {
    ============================================================ */
 
 .logo-mark {
+
     position: relative;
 
-    min-width: 58px;
-    height: 58px;
-
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 27px;
-    font-weight: bold;
-    letter-spacing: -5px;
+    min-width: 55px;
 
-    color: #222;
+    height: 60px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    letter-spacing: -8px;
+
+    color: var(--black);
+
 }
 
 
-/* Gold/tan accent across the initials */
+/* Diagonal accent */
+
 .logo-mark::after {
+
     content: "";
 
     position: absolute;
 
-    width: 62px;
+    width: 60px;
+
     height: 4px;
 
-    left: -3px;
-    top: 37px;
+    left: -4px;
 
-    background: #b69b6b;
+    top: 38px;
+
+    background-color: var(--accent);
 
     transform: rotate(-27deg);
 
     border-radius: 2px;
+
 }
 
 
 /* ============================================================
-   DIVIDER
+   LOGO DIVIDER
    ============================================================ */
 
 .logo-divider {
-    width: 1px;
-    height: 52px;
 
-    background: #b69b6b;
+    width: 1px;
+
+    height: 55px;
 
     flex-shrink: 0;
+
+    background-color: var(--accent);
+
 }
 
 
@@ -382,71 +254,903 @@ body {
    ============================================================ */
 
 .logo-text {
+
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
 
     min-width: 0;
+
 }
 
 
-/* Derek Everson */
-.logo-name {
-    font-family: Georgia, "Times New Roman", serif;
+/* Name */
 
-    font-size: 18px;
+.logo-name {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 16px;
+
     font-weight: bold;
 
     letter-spacing: 1px;
 
     white-space: nowrap;
+
 }
 
 
-/* Student / Leader / Builder */
+/* Tagline */
+
 .logo-tagline {
+
     margin-top: 5px;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
 
-    font-size: 7px;
+    font-size: 6px;
+
     font-weight: bold;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
 
-    color: #b69b6b;
+    color: var(--accent);
 
     white-space: nowrap;
+
 }
 
-.logo-tagline span {
-    padding: 0 3px;
 
-    color: #b69b6b;
+.logo-tagline span {
+
+    padding: 0 2px;
+
+    color: var(--accent);
+
 }
 
 
 /* ============================================================
-   MOBILE LOGO
+   SITE INTRODUCTION
+   ============================================================ */
+
+.site-intro {
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 20px 25px;
+
+}
+
+
+.site-intro h1 {
+
+    margin: 0 0 5px 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: normal;
+
+}
+
+
+.site-intro p {
+
+    margin: 0;
+
+    max-width: 650px;
+
+    color: var(--gray);
+
+    font-size: 14px;
+
+}
+
+
+/* ============================================================
+   PRIMARY NAVIGATION
+   ============================================================ */
+
+.primary-nav {
+
+    min-height: 40px;
+
+    border-top: 1px solid var(--border);
+
+    background-color: var(--light-gray);
+
+}
+
+
+.primary-nav ul {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.primary-nav li {
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.primary-nav a {
+
+    display: block;
+
+    padding: 8px 25px;
+
+    color: var(--black);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition:
+        background-color 0.2s ease;
+
+}
+
+
+.primary-nav a:hover,
+
+.primary-nav a.active {
+
+    background-color: #ddd8ce;
+
+    text-decoration: underline;
+
+}
+
+
+/* ============================================================
+   SECONDARY NAVIGATION
+   ============================================================ */
+
+.secondary-nav {
+
+    min-height: 30px;
+
+    border-top: 1px solid var(--border);
+
+    background-color: var(--white);
+
+}
+
+
+.secondary-nav ul {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.secondary-nav a {
+
+    display: block;
+
+    padding: 5px 18px;
+
+    color: var(--black);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+}
+
+
+.secondary-nav a:hover,
+
+.secondary-nav a.active {
+
+    text-decoration: underline;
+
+    background-color: var(--light-gray);
+
+}
+
+
+/* ============================================================
+   THREE-COLUMN PAGE
+   ============================================================ */
+
+.page-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        20%
+        60%
+        20%;
+
+    min-height: 520px;
+
+}
+
+
+/* ============================================================
+   LEFT SIDEBAR
+   ============================================================ */
+
+.left-sidebar {
+
+    border-right: 1px solid var(--border);
+
+}
+
+
+.sidebar-heading {
+
+    padding: 25px 15px 5px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 16px;
+
+}
+
+
+/* ============================================================
+   SIDE NAVIGATION
+   ============================================================ */
+
+.side-nav {
+
+    padding: 10px 15px 25px;
+
+}
+
+
+.side-nav ul {
+
+    list-style: none;
+
+    margin: 0;
+
+    padding: 0;
+
+}
+
+
+.side-nav li {
+
+    margin: 0;
+
+}
+
+
+.side-nav a {
+
+    display: block;
+
+    padding: 7px 0;
+
+    color: var(--black);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+
+.side-nav a:hover,
+
+.side-nav a.active {
+
+    text-decoration: underline;
+
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.main-content {
+
+    padding: 15px 18px 35px;
+
+}
+
+
+.main-content h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 12px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: normal;
+
+}
+
+
+.main-content h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+}
+
+
+.main-content p {
+
+    max-width: 70ch;
+
+    font-size: 15px;
+
+}
+
+
+/* ============================================================
+   HERO IMAGE
+   ============================================================ */
+
+.hero {
+
+    width: 100%;
+
+    min-height: 150px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid var(--border);
+
+    overflow: hidden;
+
+    background-color: #f7f7f7;
+
+}
+
+
+.hero img {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 150px;
+
+    object-fit: cover;
+
+}
+
+
+/* Placeholder */
+
+.hero-placeholder {
+
+    min-height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: var(--gray);
+
+}
+
+
+.hero-placeholder span {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 22px;
+
+}
+
+
+.hero-placeholder small {
+
+    margin-top: 5px;
+
+    font-size: 12px;
+
+}
+
+
+/* ============================================================
+   CONTENT SECTIONS
+   ============================================================ */
+
+.content-section {
+
+    margin-bottom: 35px;
+
+}
+
+
+/* ============================================================
+   CONTENT CARDS
+   ============================================================ */
+
+.content-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.content-card {
+
+    padding: 15px;
+
+    border: 1px solid #bbb;
+
+    background-color: #fafafa;
+
+}
+
+
+.content-card h3 {
+
+    margin-top: 0;
+
+    margin-bottom: 8px;
+
+}
+
+
+.content-card p {
+
+    font-size: 13px;
+
+}
+
+
+.content-card a {
+
+    color: var(--black);
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.content-card a:hover {
+
+    color: var(--accent);
+
+}
+
+
+/* ============================================================
+   RIGHT SIDEBAR
+   ============================================================ */
+
+.right-sidebar {
+
+    padding: 25px 18px;
+
+    border-left: 1px solid var(--border);
+
+}
+
+
+/* ============================================================
+   STICKY CONTENT
+   ============================================================ */
+
+.sticky-content {
+
+    position: sticky;
+
+    top: 20px;
+
+}
+
+
+.sticky-content h2 {
+
+    margin-top: 0;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: normal;
+
+}
+
+
+.sticky-content h3 {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 16px;
+
+}
+
+
+.sticky-content ul {
+
+    margin: 0;
+
+    padding-left: 20px;
+
+}
+
+
+.sticky-content li {
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+}
+
+
+.sticky-content a {
+
+    color: var(--black);
+
+}
+
+
+.sticky-content a:hover {
+
+    color: var(--accent);
+
+}
+
+
+.sticky-content hr {
+
+    margin: 20px 0;
+
+    border: 0;
+
+    border-top: 1px solid #ccc;
+
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+
+    padding: 12px 20px;
+
+    border-top: 1px solid var(--border);
+
+    background-color: var(--white);
+
+    text-align: center;
+
+    font-size: 12px;
+
+}
+
+
+.site-footer p {
+
+    margin: 5px 0;
+
+}
+
+
+.footer-nav {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+
+.footer-nav a {
+
+    color: var(--black);
+
+}
+
+
+.footer-nav a:hover {
+
+    color: var(--accent);
+
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .logo-name {
+
+        font-size: 14px;
+
+    }
+
+
+    .logo-tagline {
+
+        font-size: 5px;
+
+        letter-spacing: 0.7px;
+
+    }
+
+
+    .content-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
    ============================================================ */
 
 @media (max-width: 800px) {
 
-    .logo-area {
-        padding: 15px;
+    :root {
+
+        --page-width: 94%;
+
     }
+
+
+    /* Header */
+
+    .header-top {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .logo-area {
+
+        min-height: 85px;
+
+        border-right: 0;
+
+        border-bottom: 1px solid var(--border);
+
+    }
+
 
     .site-logo {
+
         justify-content: center;
+
     }
+
+
+    .site-intro {
+
+        padding: 18px;
+
+    }
+
+
+    .site-intro h1 {
+
+        font-size: 21px;
+
+    }
+
+
+    /* Main layout */
+
+    .page-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* Sidebar */
+
+    .left-sidebar {
+
+        border-right: 0;
+
+        border-bottom: 1px solid var(--border);
+
+    }
+
+
+    .right-sidebar {
+
+        border-left: 0;
+
+        border-top: 1px solid var(--border);
+
+    }
+
+
+    /* Side navigation */
+
+    .side-nav {
+
+        padding: 5px 15px 15px;
+
+    }
+
+
+    .side-nav ul {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 5px 20px;
+
+    }
+
+
+    /* Main */
+
+    .main-content {
+
+        padding: 15px;
+
+    }
+
+
+    /* Sticky sidebar */
+
+    .sticky-content {
+
+        position: static;
+
+    }
+
+
+    /* Cards */
+
+    .content-cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* ============================================================
+   SMALL MOBILE DEVICES
+   ============================================================ */
+
+@media (max-width: 500px) {
+
+    .logo-mark {
+
+        min-width: 48px;
+
+        font-size: 23px;
+
+    }
+
 
     .logo-name {
-        font-size: 17px;
+
+        font-size: 13px;
+
     }
 
+
     .logo-tagline {
-        font-size: 7px;
+
+        font-size: 5px;
+
+        letter-spacing: 0.5px;
+
+    }
+
+
+    .logo-divider {
+
+        height: 45px;
+
+    }
+
+
+    .primary-nav a {
+
+        padding: 7px 14px;
+
+    }
+
+
+    .secondary-nav a {
+
+        padding: 5px 10px;
+
     }
 
 }
