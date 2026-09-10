@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         {
             name: "Education",
-            link: "Education.html"
+            link: "education.html"
         },
         {
             name: "Contact",
